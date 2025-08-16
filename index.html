@@ -678,14 +678,15 @@ if(pagiCheck(idxA)) padaDomList[idxA].classList.add('highlight-pada-anthara');
 }
 function pagiCheck(idx){ return idx>0 && idx<=108;}
 function findPadaIndexByLabel(nakName, padaNum) {
-nakName = nakName.trim();
-padaNum = Number(padaNum);
-for(let i=1; i<=108; i++) {
-let label = padaDomList[i].textContent.replace(/^[0-9]+\.\s*/, '').trim();
-if(label.startsWith(nakName) && label.endsWith('பாதம் '+padaNum)) return i;
+  nakName = nakName.trim();
+  padaNum = Number(padaNum);
+  for(let i=1; i<=108; i++) {
+    let label = padaDomList[i].textContent.replace(/^[0-9]+\\.\\s*/, '').trim();
+    if(label.includes(nakName) && label.includes('பாதம் ' + padaNum)) return i;
+  }
+  return -1;
 }
-return -1;
-}
+
 // ---- Mode 3: Range Highlight ----
 function highlightPadaRange(padaIndex) {
 clearAllHighlights();showCurrentDasaPadaHighlight();
