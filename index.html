@@ -206,7 +206,7 @@ grid-template-areas:
 <div id="current"></div>
 <div id="currentSplits"></div>
 <div id="dasatree"></div>
-<div id="padasplit"></div>
+
 
 <!-- === BEGIN SCRIPT BLOCKS (combine both logics!) === -->
 <script>
@@ -960,15 +960,6 @@ function renderSummary(md, mdPada, pt, ptPada, at, atPada) {
   </div>`;
 
   document.getElementById("current").innerHTML = html;
-}
-
-
-
-function renderPadaSplit(arr, lab) {
-document.getElementById("padasplit").innerHTML =
-'<div class="padasplit"><b>தசை,புக்தி பிரித்து kattapadam :</b><br>' + lab + arr.map(pd =>
-`<div>${pd.nak} - பாதம் ${pd.pada}  <span class="dates">${formatDate(pd.start)} - ${formatDate(pd.end)}</span></div>`
-).join("") + '</div>';
 }
 
 function renderAll(nowParam) {
